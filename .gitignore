@@ -5,3 +5,6 @@
 
 # Files
 *.user
+*.sln
+*vcxproj
+*.filters
