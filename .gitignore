@@ -5,3 +5,7 @@
 
 # Files
 *.user
+/Kami.sln
+/Kami/Kami.vcxproj
+/Kami/Kami.vcxproj.filters
+/Sandbox/Sandbox.vcxproj
