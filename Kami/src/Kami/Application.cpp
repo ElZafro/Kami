@@ -1,3 +1,5 @@
+#include "kmpch.h"
+
 #include "Application.h"
 
 namespace Kami {
