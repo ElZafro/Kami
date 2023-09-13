@@ -24,6 +24,8 @@ namespace Kami {
 		KM_CORE_INFO("Creating window {0} [{1} x {2}]", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized) {
+
+			//GLFWterminate shoiuld be called on shutdown
 			if (!glfwInit())
 				KM_CORE_ERROR("Could not initialize GLFW!");
 
@@ -33,6 +35,15 @@ namespace Kami {
 		m_Window = glfwCreateWindow(m_Data.Width, m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 		glfwSetWindowUserPointer(m_Window, &m_Data);
+
+		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
+
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			data.Width = width;
+			data.Height = height;
+
+			data.EventCallback(WindowResizeEvent(width, height));
+		});
 
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
 

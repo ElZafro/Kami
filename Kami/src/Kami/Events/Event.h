@@ -59,9 +59,9 @@ struct fmt::formatter<Kami::Event> {
 	}
 
 	template <typename FormatContext>
-	auto format(const Kami::Event& input, FormatContext& ctx) -> decltype(ctx.out()) {
+	auto format(const Kami::Event& e, FormatContext& ctx) -> decltype(ctx.out()) {
 		return format_to(ctx.out(),
 			"{}",
-			input.ToString());
+			e.ToString());
 	}
 };
