@@ -3,6 +3,9 @@
 #include "Core.h"
 #include "Window.h"
 
+#include "Kami/Events/Event.h"
+#include "Kami/Events/ApplicationEvent.h"
+
 namespace Kami {
 
 	class KAMI_API Application
@@ -12,8 +15,13 @@ namespace Kami {
 		virtual ~Application();
 
 		void Run();
+
+		void OnEvent(Event& e);
 	private:
-		Window* m_Window;
+
+		bool OnWindowClose(WindowCloseEvent& e);
+
+		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;
 	};
 

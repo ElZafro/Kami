@@ -3,6 +3,7 @@
 #include "kmpch.h"
 
 #include "Kami/Core.h"
+#include "Kami/Events/Event.h"
 
 namespace Kami {
 
@@ -20,12 +21,17 @@ namespace Kami {
 	//Interface representing a desktop system based Window
 	class KAMI_API Window {
 	public:
+
+		using EventCallbackFn = std::function<void(Event&)>;
+
 		virtual ~Window() {}
 
 		virtual void OnUpdate() = 0;
 
 		virtual uint32_t GetWidth() const = 0;
 		virtual uint32_t GetHeight() const = 0;
+
+		virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
 
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
