@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core.h"
+#include "Window.h"
 
 namespace Kami {
 
@@ -11,9 +12,12 @@ namespace Kami {
 		virtual ~Application();
 
 		void Run();
+	private:
+		Window* m_Window;
+		bool m_Running = true;
 	};
 
-	//This should be defined in Client
+	//To be defined in client
 	Application* CreateApplication();
 }
 

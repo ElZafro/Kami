@@ -1,5 +1,7 @@
 #pragma once
 
+#include "kmpch.h"
+
 #ifdef KM_PLATFORM_WINDOWS
 
 extern Kami::Application* Kami::CreateApplication();

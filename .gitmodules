@@ -1,3 +1,6 @@
 [submodule "Kami/vendor/spdlog"]
 	path = Kami/vendor/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "Kami/vendor/GLFW"]
+	path = Kami/vendor/GLFW
+	url = https://github.com/ElZafro/glfw
